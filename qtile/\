@@ -123,27 +123,26 @@ for i in groups:
         ]
     )
 
-colors = {
-    "bg1": "1d2021",
-    "bg2": "0b0e14",
-    "red": '#e5555f',
-    "yellow": '#ffde7a',
-    "green": '#7ee787',
-}
-
 layouts = [
-    layout.MonadTall(
-        border_width=3,
-        border_focus=colors['yellow'],
-        border_normal=colors['bg1'],
-        margin=8
-    ),
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Max(),
+    # Try more layouts by unleashing below layouts.
+    # layout.Stack(num_stacks=2),
+    # layout.Bsp(),
+    # layout.Matrix(),
+    # layout.MonadTall(),
+    # layout.MonadWide(),
+    # layout.RatioTile(),
+    # layout.Tile(),
+    # layout.TreeTab(),
+    # layout.VerticalTile(),
+    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
     font="Mononoki Nerd Font",
     fontsize=17,
-    padding=7,
+    padding=9,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -155,38 +154,23 @@ screens = [
                     active='#7ee787',
                     inactive='#62afef',
                     highlight_method='block',
-                    this_current_screen_border=colors["bg1"],
-                    background=colors["bg2"],
-                    padding=9
-                ),
-                widget.TextBox(
-                    "",
-                    foreground=colors["red"],
-                    #background=colors["bg1"],
+                    this_current_screen_border='#1f2329',
+                    background='#1d2021',
                 ),
                 widget.WindowName(
-                    foreground=colors["red"],
-                    #background=colors["bg1"],
+                    foreground='#e5555f'
                 ),
                 widget.Systray(),
-                widget.TextBox(
-                    "",
-                    foreground=colors["yellow"]
-                ),
                 widget.CurrentLayout(
-                    foreground=colors["yellow"]
-                ),
-                widget.TextBox(
-                    "󰥔",
-                    foreground=colors["green"]
+                    foreground='#ffde7a'
                 ),
                 widget.Clock(
-                    format="%Y/%m/%d %a %I:%M %p",
-                    foreground=colors["green"]
+                    format="%Y-%m-%d %a %I:%M %p",
+                    foreground='#7ee787',
                 ),
             ],
             24,
-            background=colors["bg2"]
+            background='#1d2021'
         ),
     ),
 ]
